@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Ai Caller</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+</head>
+
+<body>
+  <!-- Dropdown button -->
+  
+
+  <h1>Test Ai Caller</h1>
+
+  <form id="callerForm">
+    <div>
+      <label for="selectCompany">Select LLM:</label>
+      <select id="selectCompany" onchange="updateCallFunction()">
+        <option value="synthflow">Synthflow</option>
+        <option value="vodex">Vodex</option>
+      </select>
+    </div>
+
+    <!-- Additional input fields -->
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" name="jobTitle" required>
+
+    <label for="jobLocation">Job Location:</label>
+    <input type="text" id="jobLocation" name="jobLocation" required>
+
+    <label for="hourlyRate">Hourly Rate:</label>
+    <input type="text" id="hourlyRate" name="hourlyRate" required>
+
+    <label for="jobType">Job Type (Full-Time/ Contract):</label>
+    <input type="text" id="jobType" name="jobType" required>
+
+    <label for="remote">Remote (Yes/No/Maybe):</label>
+    <input type="text" id="remote" name="remote" required>
+
+    <label for="requiredSkills">Required Skills:</label>
+    <textarea id="requiredSkills" name="requiredSkills" required></textarea>
+
+    <!-- Recruiter information -->
+    <label for="recruiterName">Recruiter Name:</label>
+    <input type="text" id="recruiterName" name="recruiterName" required>
+
+    <label for="recruiterPhone">Recruiter Phone:</label>
+    <input type="text" id="recruiterPhone" name="recruiterPhone" required>
+
+    <label for="recruiterEmail">Recruiter Email:</label>
+    <input type="email" id="recruiterEmail" name="recruiterEmail" required>
+
+
+    <!-- Testing For the job-->
+    <h3>For Testing Your Call</h3>
+    <label for="name">Name of Candidate:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phoneNumber">Phone Number with dial Code:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+    <button type="button" id="callButton" onclick="makeCall()">Call</button>
+  </form>
+  <!-- <form id="csvForm" enctype="multipart/form-data">
+    <label for="file">Upload CSV file:</label>
+    <input type="file" id="file" name="file" accept=".csv" required>
+    <button type="button" onclick="makeMultipleCalls()">Make Calls</button>
+  </form> -->
+
+  <div id="output"></div>
+
+  <script>
+    function updateCallFunction() {
+      var selectCompany = document.getElementById("selectCompany").value;
+      if (selectCompany === "synthflow") {
+        document.getElementById("callButton").setAttribute("onclick", "makeCall()");
+      } else if (selectCompany === "vodex") {
+        document.getElementById("callButton").setAttribute("onclick", "makeCallVodex()");
+      }
+    }
+  </script>
+
+</body>
+
+</html>
