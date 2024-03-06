@@ -1,7 +1,7 @@
 import requests
 import os
 
-vodex_token = os.environ.get("vodex")
+vodex_token = os.environ.get("vodex_token")
 vodex_api_url = "https://api.vodex.ai/api/v1/trigger-call"
 
 def make_vodex_api_call(data, name, phoneNumber):
