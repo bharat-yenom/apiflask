@@ -1,28 +1,90 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# Python Apiflask
+Make sure you have python installed in your machine
 
-# Flask + Vercel
+This is the flask api endpoints to be used with the front end, make sure to follow the steps to make it work.
+Make sure to install all the dependencies from the requirements.txt to start the testing, the frontend made for this app is simply a demo to see everythin is working
+We have made a react app to act as a frontend, just we have to change the url, in the frontend src/router/api.routes.js
+### File Structure
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
-
-## Demo
-
-https://flask-python-template.vercel.app/
-
-## How it Works
-
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
-
-```bash
-npm i -g vercel
-vercel dev
+``` bash
+your_app/
+├── app/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── views.py
+│   │   └── ...
+│   ├── templates
+│   │   ├── index.html
+│   │   └── ...
+│   ├── static
+│   │   ├── main.js
+│   │   ├── style.css
+│   │   └── ...
+│   └── ...
+├── config.py
+├── main.py
+├── requirements.txt
+├── vercel.json
+└── ...
 ```
 
-Your Flask application is now available at `http://localhost:3000`.
+### Backend Github URL
 
-## One-Click Deploy
+```bash
+https://github.com/anshulbugs/gptVoiceFront/
+```
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+## URL When Running Locally
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+```bash
+http://127.0.0.1:5000/
+```
+## Hosted on vercel for the testing
+
+```bash
+https://apifinal.vercel.app/
+```
+
+## Setup 
+
+```bash
+git clone https://github.com/bharat-yenom/apiendpoints.git <your project name>
+```
+
+Rename `main.py` with an appropriate file name and update its contents.
+
+#### After installing everything and setting up the env
+In the terminal or powershell for windows (in the root directory)
+```bash
+python main.py
+```
+In case of linux (in the root directory)
+```bash
+python3 main.py
+```
+### Setting Up a Virual Environment (optional)
+
+```bash
+pip install --upgrade virtualenv
+virtualenv -p python venv
+source venv/bin/activate
+```
+
+## Dependencies
+
+This section is for any dependencies that have been added using `pip`.
+
+Freeze list of dependencies:
+
+```bash
+pip freeze > requirements.txt
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
