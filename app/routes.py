@@ -3,6 +3,7 @@ from app.models import Rule, Company, Client, Recruiter
 from app.utils.job_diva import quick_job_search
 from app.utils.synthflow import make_synthflow_call
 from app.utils.vodex import make_vodex_api_call
+from app.utils.vapi import make_vapi_calls
 from flask_cors import cross_origin
 import os
 from app import db
@@ -144,6 +145,9 @@ def test_campaign():
  
             response_data = make_vodex_api_call(data,name,phone)
             return jsonify({'status': 'success', 'response': 'Making calls using Vodex'})
+        if data["LLM"] == "Vapi":
+            make_vapi_calls(data)
+            return jsonify({'status': 'success', 'response': 'Making call using Vapi'})
     except Exception as e:
         error_response = {'status': 'error', 'response': str(e)}
         return jsonify(error_response)
