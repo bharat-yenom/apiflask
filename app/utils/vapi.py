@@ -9,7 +9,7 @@ phone_number_id = 'e64d70b8-884e-426d-be57-b8400eb26803'
 result_string = lambda x: ', '.join(x)
 def make_vapi_calls(data):
         
-        customer_number = data['TestPhoneNumber']
+        customer_number = '+' + data['TestPhoneNumber'] if not data['TestPhoneNumber'].startswith('+') else data['TestPhoneNumber']
  
         # Create the header with Authorization token
         headers = {

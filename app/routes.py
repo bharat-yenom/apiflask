@@ -44,8 +44,8 @@ def write_json_data():
         if data["LLM"] =="Synthflow" :
  
             custom_variables = [
-                "job_title: {}".format(data['JobTitle'] if 'JobTitle' in data else 'not specified'),
-                "job_location: {}, {}".format(data['City'] if 'City' in data else '_', data['State'] if 'State' in data else 'not specified'),
+            "job_title: {}".format(data['JobTitle'] if 'JobTitle' in data else 'not specified'),
+            "job_location: {}, {}".format(data['City'] if 'City' in data else '_', data['State'] if 'State' in data else 'not specified'),
             "hourly_rate: {}".format(data['HourlyRate'] if 'HourlyRate' in data else 'not specified'),
             "job_type:  {}".format(data['JobType'] if 'JobType' in data else 'not specified'),
             "remote_or_hybrid:  {}".format(data['RemoteHybrid'] if 'RemoteHybrid' in data else 'not specified'),
@@ -115,8 +115,8 @@ def test_campaign():
             if len(phone) == 10:
                 phone = '1' + phone
             custom_variables = [
-                "job_title: {}".format(data['JobTitle'] if 'JobTitle' in data else 'not specified'),
-                "job_location: {}, {}".format(data['City'] if 'City' in data else '_', data['State'] if 'State' in data else 'not specified'),
+            "job_title: {}".format(data['JobTitle'] if 'JobTitle' in data else 'not specified'),
+            "job_location: {}, {}".format(data['City'] if 'City' in data else '_', data['State'] if 'State' in data else 'not specified'),
             "hourly_rate: {}".format(data['HourlyRate'] if 'HourlyRate' in data else 'not specified'),
             "job_type:  {}".format(data['JobType'] if 'JobType' in data else 'not specified'),
             "remote_or_hybrid:  {}".format(data['RemoteHybrid'] if 'RemoteHybrid' in data else 'not specified'),
