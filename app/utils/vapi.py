@@ -6,11 +6,32 @@ auth_token = os.environ.get("vapi_token")
 # The Phone Number ID, and the Customer details for the call
 phone_number_id = 'e64d70b8-884e-426d-be57-b8400eb26803'
 
+def format_phone_number(phone_number):
+    # Remove any non-digit characters from the input
+    cleaned_number = ''.join(filter(str.isdigit, phone_number))
+
+    # Check the length of the cleaned number
+    if len(cleaned_number) == 10:
+        # If it's 10 digits, add '+1' as a prefix
+        formatted_number = '+1' + cleaned_number
+    elif len(cleaned_number) > 10:
+        # If it's more than 10 digits, check if it starts with '+'
+        if cleaned_number.startswith('+'):
+            formatted_number = cleaned_number
+        else:
+            # If not, add '+' as a prefix
+            formatted_number = '+' + cleaned_number
+    else:
+        # Invalid input (less than 10 digits)
+        formatted_number = 'Invalid phone number'
+
+    return formatted_number
+
 result_string = lambda x: ', '.join(x)
 def make_vapi_calls(data):
         
-        customer_number = '+' + data['TestPhoneNumber'] if not data['TestPhoneNumber'].startswith('+') else data['TestPhoneNumber']
- 
+        customer_number = format_phone_number(data['TestPhoneNumber'])
+        
         # Create the header with Authorization token
         headers = {
             'Authorization': f'Bearer {auth_token}',
